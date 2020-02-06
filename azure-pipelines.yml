@@ -11,7 +11,7 @@ pool:
 
 variables:
   pathtosolution: 'PopPopPotholes/'
-  pathtotest: '$(pathtosolution)/PopPopTest'
+  pathtotest: '$PopPopPotholes/PopPopTest'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
