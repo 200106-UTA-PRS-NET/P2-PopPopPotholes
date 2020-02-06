@@ -38,6 +38,8 @@ steps:
   workingDirectory: $(pathtosolution)
   displayName: 'dotnet test'
 
+- task: SonarCloudAnalyze@1
+
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
