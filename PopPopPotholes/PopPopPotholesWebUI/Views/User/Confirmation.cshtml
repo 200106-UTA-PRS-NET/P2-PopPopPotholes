@@ -1,0 +1,14 @@
+﻿@model Issue
+@{
+    ViewData["Title"] = "Confirmation";
+}
+
+<h1>Confirmation</h1>
+<div class=" text-center">
+    <p>Issue Type: @Model.IssueType</p>
+    <p>Issue Severity: @Model.IssueSeverity</p>
+    <p>Issue Summary: @Model.Summary</p>
+    <p><button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("NewIssue", "User")'">Submit this Issue</button></p>
+
+</div>
+

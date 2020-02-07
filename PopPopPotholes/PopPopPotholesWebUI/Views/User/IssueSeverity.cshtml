@@ -1,0 +1,19 @@
+﻿@model IEnumerable<string>
+@{
+    ViewData["Title"] = "Severity";
+}
+
+<div class="text-center">
+    <h1>Severity</h1>
+</div>
+@using (Html.BeginForm("IssueSummary", "User"))
+{
+<div class="text-center">
+    @foreach (var item in Model)
+    {
+    <p><input type="radio" name="Severity"  checked ="checked" value=@item>@item</p>
+    }
+    <input class="button" id="submit" type="submit" value="Submit" />
+</div>
+}
+
