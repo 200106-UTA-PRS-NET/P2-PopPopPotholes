@@ -1,7 +1,14 @@
 ﻿
 @{
-    ViewData["Title"] = "IssueSummary";
+    ViewData["Title"] = "Issue Summary";
 }
-
-<h1>IssueSummary</h1>
-
+<div class=" = text-center">
+    <h1>Issue Summary</h1>
+</div>
+@using (Html.BeginForm("Confirmation", "User"))
+{
+    <div class="text-center">
+        <p><input type="text" name="summary" required placeholder="Type a summary of the issue here" /></p>
+        <p><input class="button" id="submit" type="submit" value="Submit" /></p>
+    </div>
+}
