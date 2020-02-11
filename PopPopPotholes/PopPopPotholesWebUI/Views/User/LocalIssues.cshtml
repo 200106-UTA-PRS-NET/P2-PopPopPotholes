@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Issue>
+@{
+    ViewData["Title"] = "Local Issues";
+}
+
+<h1>Local Issues</h1>
+@using (Html.BeginForm("ExistingIssue", "User"))
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IssueType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.City)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImageLink)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <input type="radio" name="SelectedIssue" value=@item.ID />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IssueType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.City)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ImageLink)
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td>
+                    <input type="radio" name="SelectedIssue" checked ="checked" value=-1 />
+                </td>
+                <td>
+                    None of the Above
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="text-center">
+        <input class="button" id="submit" type="submit" value="Submit" />
+    </div>
+}
+    
