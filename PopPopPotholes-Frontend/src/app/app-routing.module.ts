@@ -6,6 +6,7 @@ import { IssueDetailComponent } from './issue-detail/issue-detail.component';
 import { TypeComponent } from './type/type.component';
 import { LandingComponent } from './landing/landing.component'
 import { DescriptionComponent } from './description/description.component';
+import { ConfirmationComponent} from './confirmation/confirmation.component'
 
 const routes: Routes = [
   { path: 'severity', component: SeverityComponent },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'type', component: TypeComponent},
   { path: 'landing', component: LandingComponent},
   { path: '', redirectTo: '/landing', pathMatch: 'full' },
-  { path: 'description', component: DescriptionComponent}
+  { path: 'description', component: DescriptionComponent},
+  { path: 'confirmation', component: ConfirmationComponent}
 ];
 
 @NgModule({

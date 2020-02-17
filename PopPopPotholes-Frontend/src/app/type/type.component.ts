@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Issue} from '../issue';
 import { NgForm } from '@angular/forms';
 import { IssueService } from '../issue.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-type',
@@ -11,7 +12,7 @@ import { IssueService } from '../issue.service'
 export class TypeComponent implements OnInit {
 
   isSubmitted = false;
-  constructor(private issueService: IssueService) { }
+  constructor(private issueService: IssueService, private router: Router) { }
   issue: Issue; //TODO connect to ISSUE SERVICE
   submitForm(form: NgForm) {
     this.isSubmitted = true;
@@ -20,7 +21,7 @@ export class TypeComponent implements OnInit {
     } else {
       this.issue.type = form.value;
       this.issueService.setType(this.issue.type)
-      
+      this.router.navigateByUrl('/severity');
     }
   }
 

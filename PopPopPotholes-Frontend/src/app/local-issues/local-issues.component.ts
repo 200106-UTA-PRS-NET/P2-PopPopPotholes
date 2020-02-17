@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Issue} from '../issue';
+import { NgForm } from '@angular/forms';
 import { IssueService } from '../issue.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-local-issues',
@@ -9,9 +11,10 @@ import { IssueService } from '../issue.service'
 })
 export class LocalIssuesComponent implements OnInit {
 
+  isSubmitted = false;
   issues: Issue[] = [];
   issue: Issue;
-  constructor(private issueService: IssueService) { }
+  constructor(private issueService: IssueService, private router: Router) { }
 
   setCoords(lat: number, long: number){
     this.issue.latitude = lat;
@@ -34,5 +37,20 @@ export class LocalIssuesComponent implements OnInit {
     this.issueService.getIssues()
         .subscribe(issues => this.issues = issues);
     this.filterIssues(Latitude, Longitude);
+  }
+  submitForm(form: NgForm) {
+    this.isSubmitted = true;
+    if(!form.valid) {
+      return false;
+    } else {
+      if(form.value == -1){;
+        this.router.navigateByUrl('/type');
+      }
+      else{
+        this.issueService.incrementCount(form.value);
+        this.router.navigateByUrl('/thankyou');
+      }
+      
+    }
   }
 }
