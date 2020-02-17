@@ -7,48 +7,16 @@ trigger:
 - master
 
 pool:
-  vmImage: 'windows-latest'
-
-variables:
-  pathtosolution: 'PopPopPotholes/'
-  pathtotest: '$PopPopPotholes/PopPopTest'
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
+  vmImage: 'ubuntu-latest'
 
 steps:
-- task: SonarCloudPrepare@1
+- task: NodeTool@0
   inputs:
-    SonarCloud: 'PopPopSonar'
-    organization: 'trostka'
-    scannerMode: 'MSBuild'
-    projectKey: 'PopPopToken'
-    extraProperties: |
-      sonar.cs.opencover.reportsPaths="$(Build.ArtifactStagingDirectory)/coverage/*"
-      sonar.cs.vstest.reportsPaths="$(Build.ArtifactStagingDirectory)/test/*.trx"
-      sonar.exclusions=**/wwwroot/lib/**/*
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
 
-- script: dotnet build --configuration $(buildConfiguration)
-  workingDirectory: $(pathtosolution)
-  displayName: 'dotnet build $(buildConfiguration)'
-
-- script: dotnet test
-    --configuration $(buildConfiguration)
-    --logger trx
-    --no-build
-    --results-directory $(Build.ArtifactStagingDirectory)/PopPopTest/
-    /p:CollectCoverage=true
-    /p:CoverletOutputFormat=opencover
-    /p:CoverletOutput="$(Build.ArtifactStagingDirectory)/coverage/"
-  workingDirectory: $(pathtosolution)
-  displayName: 'dotnet test'
-
-- task: SonarCloudAnalyze@1
-- task: SonarCloudPublish@1
-  inputs:
-    pollingTimeoutSec: '300'
-
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'test'
-    projects: '$(pathtotest)'
-    workingDirectory: '$(pathtosolution)'
+- script: |
+    npm install -g @angular/cli
+    npm install
+    ng build --prod
+  displayName: 'npm install and build'
