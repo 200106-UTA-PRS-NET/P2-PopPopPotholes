@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Issue } from './issue'
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { Issue } from './issue'
 export class IssueService {
   issue: Issue;
   Issues: Issue[] = []; //TEMP
-  constructor() { }
+  constructor(private http: HttpClient) { }
   getIssue(){
 
     return of(this.issue);

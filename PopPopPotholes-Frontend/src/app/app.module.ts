@@ -13,6 +13,8 @@ import { LandingComponent } from './landing/landing.component';
 import { DescriptionComponent } from './description/description.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,8 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
     BrowserModule,
     FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
