@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Issue } from '../issue'
 import { NgForm } from '@angular/forms';
 import { IssueService } from '../issue.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-description',
@@ -10,10 +11,10 @@ import { IssueService } from '../issue.service'
 })
 export class DescriptionComponent implements OnInit {
 
-  constructor(private issueService: IssueService) { }
+  constructor(private issueService: IssueService, private router: Router) { }
 
   isSubmitted = false;
-  issue: Issue; //TODO connect to ISSUE SERVICE
+  issue: Issue; 
   submitForm(form: NgForm) {
     this.isSubmitted = true;
     if(!form.valid) {
@@ -21,6 +22,7 @@ export class DescriptionComponent implements OnInit {
     } else {
       this.issue.description = form.value;
       this.issueService.setDescription(this.issue.description);
+      //route to confirmation
     }
   }
   getIssue(): void {

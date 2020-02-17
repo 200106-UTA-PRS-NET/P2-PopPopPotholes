@@ -26,4 +26,14 @@ export class IssueService {
     //TODO CONNECT TO AZURE
     return of(this.Issues) //TEMP
   }
+  getIssueById(id: number){
+
+  }
+  incrementCount(id: number){
+    //use get to get issue by id, increment upvotes by 1, patch or put issue
+  }
+  createIssue(issue:Issue){
+    //use post method on API /issue
+  }
+
 }
