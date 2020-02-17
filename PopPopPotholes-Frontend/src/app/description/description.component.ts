@@ -22,7 +22,7 @@ export class DescriptionComponent implements OnInit {
     } else {
       this.issue.description = form.value;
       this.issueService.setDescription(this.issue.description);
-      //route to confirmation
+      this.router.navigateByUrl('/confirmation');
     }
   }
   getIssue(): void {
