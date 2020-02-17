@@ -11,6 +11,7 @@ import { TypeComponent } from './type/type.component';
 import { LocalIssuesComponent } from './local-issues/local-issues.component';
 import { LandingComponent } from './landing/landing.component';
 import { DescriptionComponent } from './description/description.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { DescriptionComponent } from './description/description.component';
     TypeComponent,
     LocalIssuesComponent,
     LandingComponent,
-    DescriptionComponent
+    DescriptionComponent,
+    ConfirmationComponent
   ],
   imports: [
     BrowserModule,
