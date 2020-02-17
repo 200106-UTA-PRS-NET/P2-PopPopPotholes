@@ -1,0 +1,29 @@
+<form #myForm="ngForm" (submit)="submitForm(myForm)" novalidate>
+    
+    <h3>Severity</h3>
+    <div>
+       <input id="mild" type="radio" class="custom-control-input" value="mild" name="severity" ngModel required>
+       <label class="custom-control-label" for="mild">Mild</label>
+    </div>
+    <div>
+       <input id="moderate" type="radio" class="custom-control-input" value="moderate" name="severity" ngModel required>
+       <label class="custom-control-label" for="moderate">Moderate</label>
+    </div>
+    <div>
+        <input id="severe" type="radio" class="custom-control-input" value="severe" name="severity" ngModel required>
+        <label class="custom-control-label" for="severe">Severe</label>
+     </div>
+     <div>
+        <input id="critical" type="radio" class="custom-control-input" value="critical" name="severity" ngModel required>
+        <label class="custom-control-label" for="critical">Critical</label>
+     </div>
+
+    
+ 
+    <div *ngIf="isSubmitted && myForm.invalid">
+       <p>Please select a value</p>
+    </div>
+ 
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-danger btn-lg btn-block">Submit Issue</button>
+ </form><!-- Form ends -->
