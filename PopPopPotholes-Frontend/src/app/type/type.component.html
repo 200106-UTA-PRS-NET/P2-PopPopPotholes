@@ -1,0 +1,34 @@
+<form #myForm="ngForm" (submit)="submitForm(myForm)" novalidate>
+
+<h3>Type</h3>
+    <div>
+       <input id="infrastructure" type="radio" class="custom-control-input" value="infrastructure" name="type" ngModel required>
+       <label class="custom-control-label" for="infrastructure">Infrastructure</label>
+    </div>
+    <div>
+       <input id="accessability" type="radio" class="custom-control-input" value="accessability" name="type" ngModel required>
+       <label class="custom-control-label" for="accessability">Accessability</label>
+    </div>
+    <div>
+        <input id="hazard" type="radio" class="custom-control-input" value="hazard" name="type" ngModel required>
+        <label class="custom-control-label" for="hazard">Hazard</label>
+    </div>
+    <div>
+        <input id="waste" type="radio" class="custom-control-input" value="waste" name="type" ngModel required>
+        <label class="custom-control-label" for="waste">Waste</label>
+    </div>
+    <div>
+        <input id="nuisance" type="radio" class="custom-control-input" value="nuisance" name="type" ngModel required>
+        <label class="custom-control-label" for="nuisance">Nuisance</label>
+    </div>
+    <div>
+        <input id="pothole" type="radio" class="custom-control-input" value="pothole" name="type" ngModel required>
+        <label class="custom-control-label" for="pothole">Pothole</label>
+    </div>
+ 
+<div *ngIf="isSubmitted && myForm.invalid">
+    <p>Please select a value</p>
+    </div>
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-danger btn-lg btn-block" routerLink="/severity">Submit Issue</button>
+</form><!-- Form ends -->
