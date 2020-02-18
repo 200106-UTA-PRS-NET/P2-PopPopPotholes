@@ -23,6 +23,9 @@ export class DescriptionComponent implements OnInit {
     for(var i =0;i<50;i++){
       this.value = this.value.replace("%20",' ')
     }
+    for(var i =0;i<50;i++){
+      this.value = this.value.replace("%2C",',')
+    }
     if(!form.valid) {
       return false;
     } else {

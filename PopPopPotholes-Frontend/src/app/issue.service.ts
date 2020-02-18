@@ -9,7 +9,17 @@ import { timeout } from 'q';
   providedIn: 'root'
 })
 export class IssueService {
-  issue = <Issue> {};
+  issue = <Issue> {
+    issueType: 'a',
+    severity: 'b',
+    cityId: 1,
+    latitude: 0,
+    longitude: 0,
+    linkImg: 'string',
+    issueDescription: 'd',
+    issueStatus: 'pending',
+    issueUpvotes: 1
+  };
   issue2 = <Issue> {};
   Issues = <Issue[]> {}; 
   constructor(private http: HttpClient) { }
@@ -42,6 +52,7 @@ export class IssueService {
   incrementCount(id: number){
   }
   createIssue(issue:Issue){
+    this.issue.cityId=1;
     return this.http.post('https://poppoppotholes.azurewebsites.net/api/issue', issue)
   }
 
