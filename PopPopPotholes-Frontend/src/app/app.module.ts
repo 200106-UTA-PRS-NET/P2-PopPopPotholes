@@ -12,6 +12,9 @@ import { LocalIssuesComponent } from './local-issues/local-issues.component';
 import { LandingComponent } from './landing/landing.component';
 import { DescriptionComponent } from './description/description.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { ThankYouComponent } from './thank-you/thank-you.component';
+
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,13 +26,15 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
     LocalIssuesComponent,
     LandingComponent,
     DescriptionComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
+    ThankYouComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

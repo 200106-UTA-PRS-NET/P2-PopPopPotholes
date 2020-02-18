@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Issue } from './issue'
+
 import { timeout } from 'q';
 
 @Injectable({
@@ -9,7 +11,7 @@ import { timeout } from 'q';
 export class IssueService {
   issue = <Issue> {};
   Issues: Issue[] = []; //TEMP
-  constructor() { }
+  constructor(private http: HttpClient) { }
   getIssue(){
 
     return of(this.issue);
