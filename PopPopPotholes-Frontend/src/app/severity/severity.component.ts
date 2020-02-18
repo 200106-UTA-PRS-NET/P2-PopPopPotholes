@@ -3,6 +3,7 @@ import { Issue } from '../issue';
 import { NgForm } from '@angular/forms';
 import { IssueService } from '../issue.service'
 import { Router } from '@angular/router';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-severity',
@@ -11,17 +12,18 @@ import { Router } from '@angular/router';
 })
 export class SeverityComponent implements OnInit {
 
-  
+  value: string;
+  issue = <Issue>{};
   isSubmitted = false;
   constructor(private issueService: IssueService, private router: Router) { }
-  issue: Issue; //TODO connect to ISSUE SERVICE
   submitForm(form: NgForm) {
     this.isSubmitted = true;
+    this.value = stringify(form.value)
+    this.value = this.value.replace("severity=",'')
     if(!form.valid) {
       return false;
     } else {
-      this.issue.severity = form.value;
-      this.issueService.setSeverity(this.issue.severity)
+      this.issueService.setSeverity(this.value)
       this.router.navigateByUrl('/description');
     }
   }

@@ -17,7 +17,6 @@ export class ConfirmationComponent implements OnInit {
     if(!form.valid) {
       return false;
     } else {
-      this.issue.description = form.value;
       this.issueService.createIssue(this.issue);
       this.router.navigateByUrl('/thankyou');
     }
