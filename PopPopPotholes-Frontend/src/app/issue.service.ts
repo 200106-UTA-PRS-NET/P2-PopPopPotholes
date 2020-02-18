@@ -10,7 +10,8 @@ import { timeout } from 'q';
 })
 export class IssueService {
   issue = <Issue> {};
-  Issues: Issue[] = []; //TEMP
+  issue2 = <Issue> {};
+  Issues = <Issue[]> {}; 
   constructor(private http: HttpClient) { }
   getIssue(){
 
@@ -21,31 +22,27 @@ export class IssueService {
     return null;
   }
   setType(type: string){
-    this.issue.type = type;
+    this.issue.issueType = type;
     return null;
   }
   setDescription(description: string){
-    this.issue.description = description;
+    this.issue.issueDescription = description;
     return null;
   }
-  getIssues(){
-    //TODO CONNECT TO AZURE
-    return of(this.Issues) //TEMP
+  getIssues(): Observable<Issue[]> {
+    return this.http.get<Issue[]>('https://poppoppotholes.azurewebsites.net/api/issue')
   }
   setPosition(lat: number, long: number){
     this.issue.latitude = lat;
     this.issue.longitude = long;
-
   }
   getIssueById(id: number){
-
+    return this.http.get<Issue>('https://poppoppotholes.azurewebsites.net/api/issue/{id}')
   }
   incrementCount(id: number){
-    //use get to get issue by id, increment upvotes by 1, patch or put issue
   }
   createIssue(issue:Issue){
-    return null;
-    //use post method on API /issue
+    return this.http.post('https://poppoppotholes.azurewebsites.net/api/issue', issue)
   }
 
 }

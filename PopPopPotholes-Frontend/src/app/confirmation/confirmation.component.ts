@@ -11,13 +11,13 @@ import { Router } from '@angular/router';
 })
 export class ConfirmationComponent implements OnInit {
   isSubmitted = false;
-  issue= <Issue> {}; 
+  issue = <Issue> {};
   submitForm(form: NgForm) {
     this.isSubmitted = true;
     if(!form.valid) {
       return false;
     } else {
-      this.issueService.createIssue(this.issue);
+      this.issueService.createIssue(this.issue as Issue).subscribe();
       this.router.navigateByUrl('/thank-you');
     }
   }

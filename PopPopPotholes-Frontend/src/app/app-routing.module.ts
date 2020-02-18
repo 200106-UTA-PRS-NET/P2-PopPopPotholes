@@ -8,6 +8,7 @@ import { LandingComponent } from './landing/landing.component'
 import { DescriptionComponent } from './description/description.component';
 import { ConfirmationComponent} from './confirmation/confirmation.component'
 import { ThankYouComponent } from './thank-you/thank-you.component'
+import {DisplayIssuesComponent} from './display-issues/display-issues.component'
 
 const routes: Routes = [
   { path: 'severity', component: SeverityComponent },
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/landing', pathMatch: 'full' },
   { path: 'description', component: DescriptionComponent},
   { path: 'confirmation', component: ConfirmationComponent},
-  { path: 'thank-you', component: ThankYouComponent }
+  { path: 'thank-you', component: ThankYouComponent },
+  { path: 'display-issues', component: DisplayIssuesComponent}
 ];
 
 @NgModule({
