@@ -44,6 +44,7 @@ export class IssueService {
     //use get to get issue by id, increment upvotes by 1, patch or put issue
   }
   createIssue(issue:Issue){
+    return null;
     //use post method on API /issue
   }
 
