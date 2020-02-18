@@ -27,8 +27,6 @@ export class LocalIssuesComponent implements OnInit {
     navigator.geolocation.getCurrentPosition(function(position){
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
-      debugger;
-
       that.setCoords(latitude, longitude)
     });
   }
