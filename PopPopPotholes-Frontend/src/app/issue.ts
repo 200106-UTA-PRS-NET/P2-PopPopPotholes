@@ -1,6 +1,5 @@
 export interface Issue {
     id: number;
-    time: Date;
     type: string;
     severity: string;
     cityId: number;

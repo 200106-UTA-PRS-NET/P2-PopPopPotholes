@@ -1,9 +1,9 @@
 <form #myForm="ngForm" (submit)="submitForm(myForm)" novalidate>
-    <h3>Description</h3>
-    <input type ="text" class="custom-control-input" name = "description" value="mild" size ="250" ngModel required >
-    <div *ngIf="isSubmitted && myForm.invalid">
-        <p>Please enter a description</p>
-    </div>
+    <h3>Confirmation</h3>
+    <p>Issue Type: {{issue.type}}</p>
+    <p>Issue Severity: {{issue.severity}}</p>
+    <p>Issue Description: {{issue.description}}</p>
+    <p>Issue Location: {{issue.latitude}},{{issue.longitude}}</p>
          <!-- Submit Button -->
          <button type="submit" class="btn btn-danger btn-lg btn-block" >Submit Issue</button>
     </form>

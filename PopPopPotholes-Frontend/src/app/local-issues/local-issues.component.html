@@ -1,14 +1,14 @@
 <form #myForm="ngForm" (submit)="submitForm(myForm)" novalidate>
 
     <h3>Local Issues</h3>
-        <div *ngfor= "let issue of issues">
-           <input type="radio" class="custom-control-input" value="issue.id" name="issueid" ngModel required>
-           <label class="custom-control-label">{{issue.type}} {{issue.description}}</label>
+        <div *ngFor = "let issue1 of issues">
+           <input type="radio" class="custom-control-input" value="issue1.id" name="issueid" ngModel required>
+           <label class="custom-control-label">{{issue1.type}} {{issue1.description}}</label>
         </div>
         <div>
-            <input id="issue.id" type="radio" class="custom-control-input" value="issue.id" name="issueid" ngModel required>
+            <input  type="radio" class="custom-control-input" value="-1" name="issueid" ngModel required>
             <label class="custom-control-label">New Issue</label>
-         </div>
+        </div>
      
     <div *ngIf="isSubmitted && myForm.invalid">
         <p>Please select a value</p>

@@ -3,6 +3,7 @@ import { Issue } from '../issue'
 import { NgForm } from '@angular/forms';
 import { IssueService } from '../issue.service'
 import { Router } from '@angular/router';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-description',
@@ -12,16 +13,21 @@ import { Router } from '@angular/router';
 export class DescriptionComponent implements OnInit {
 
   constructor(private issueService: IssueService, private router: Router) { }
-
+  value: string;
   isSubmitted = false;
-  issue: Issue; 
+  issue = <Issue>{}; 
   submitForm(form: NgForm) {
     this.isSubmitted = true;
+    this.value = stringify(form.value)
+    this.value = this.value.replace("description=",'')
+    for(var i =0;i<50;i++){
+      this.value = this.value.replace("%20",' ')
+    }
     if(!form.valid) {
       return false;
     } else {
-      this.issue.description = form.value;
-      this.issueService.setDescription(this.issue.description);
+      this.issue.description = this.value;
+      this.issueService.setDescription(this.value);
       this.router.navigateByUrl('/confirmation');
     }
   }

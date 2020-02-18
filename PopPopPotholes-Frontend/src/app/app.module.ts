@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import { FormsModule }   from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +12,7 @@ import { LocalIssuesComponent } from './local-issues/local-issues.component';
 import { LandingComponent } from './landing/landing.component';
 import { DescriptionComponent } from './description/description.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { ThankYouComponent } from './thank-you/thank-you.component';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -25,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     LocalIssuesComponent,
     LandingComponent,
     DescriptionComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
+    ThankYouComponent
   ],
   imports: [
     BrowserModule,
