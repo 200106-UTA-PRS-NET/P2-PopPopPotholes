@@ -1,8 +1,8 @@
 <form #myForm="ngForm" (submit)="submitForm(myForm)" novalidate>
     <h3>Confirmation</h3>
-    <p>Issue Type: {{issue.type}}</p>
+    <p>Issue Type: {{issue.issueType}}</p>
     <p>Issue Severity: {{issue.severity}}</p>
-    <p>Issue Description: {{issue.description}}</p>
+    <p>Issue Description: {{issue.issueDescription}}</p>
     <p>Issue Location: {{issue.latitude}},{{issue.longitude}}</p>
          <!-- Submit Button -->
          <button type="submit" class="btn btn-danger btn-lg btn-block" >Submit Issue</button>

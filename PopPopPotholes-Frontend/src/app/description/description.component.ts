@@ -26,7 +26,7 @@ export class DescriptionComponent implements OnInit {
     if(!form.valid) {
       return false;
     } else {
-      this.issue.description = this.value;
+      this.issue.issueDescription = this.value;
       this.issueService.setDescription(this.value);
       this.router.navigateByUrl('/confirmation');
     }

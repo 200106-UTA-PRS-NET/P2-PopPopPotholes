@@ -14,6 +14,7 @@ export class LocalIssuesComponent implements OnInit {
 
   isSubmitted = false;
   issues: Issue[] = [];
+  issues2: Issue[] = [];
   issue = <Issue>{};
   value: string;
   constructor(private issueService: IssueService, private router: Router) { }
@@ -36,7 +37,14 @@ export class LocalIssuesComponent implements OnInit {
     this.getIssues(this.issue.latitude, this.issue.longitude)
   }
   filterIssues(Latitude: number, Longitude: number){
-    
+    this.issues.forEach(element => {
+      if(Math.abs(+element.latitude - +Latitude)<1 && Math.abs(+element.longitude - +Longitude))
+      {
+        this.issues2.push(element)
+      }
+      else{
+      }
+    });
   }
   getIssues(Latitude: number, Longitude: number){
     this.issueService.getIssues()

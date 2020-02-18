@@ -1,9 +1,9 @@
 <form #myForm="ngForm" (submit)="submitForm(myForm)" novalidate>
 
     <h3>Local Issues</h3>
-        <div *ngFor = "let issue1 of issues">
+        <div *ngFor = "let issue1 of issues2">
            <input type="radio" class="custom-control-input" value="issue1.id" name="issueid" ngModel required>
-           <label class="custom-control-label">{{issue1.type}} {{issue1.description}}</label>
+           <label class="custom-control-label">{{issue1.issueType}} {{issue1.issueDescription}}</label>
         </div>
         <div>
             <input  type="radio" class="custom-control-input" value="-1" name="issueid" ngModel required>

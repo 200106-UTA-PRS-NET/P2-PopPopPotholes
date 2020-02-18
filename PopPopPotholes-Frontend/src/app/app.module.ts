@@ -15,6 +15,7 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { DisplayIssuesComponent } from './display-issues/display-issues.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     LandingComponent,
     DescriptionComponent,
     ConfirmationComponent,
-    ThankYouComponent
+    ThankYouComponent,
+    DisplayIssuesComponent
   ],
   imports: [
     BrowserModule,
